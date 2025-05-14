@@ -1,4 +1,2 @@
-include:
-  - pages
 theme: jekyll-theme-minimal
 description: this is yaml enabled description
