@@ -1,0 +1,6 @@
+reticulate
+testthat
+dplyr
+ggplot2
+stac
+yaml

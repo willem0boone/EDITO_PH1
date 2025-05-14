@@ -1,0 +1,7 @@
+*.png
+*.idea
+*.xlsx
+.Rproj.user
+*.Rhistory
+*.RData
+/output
