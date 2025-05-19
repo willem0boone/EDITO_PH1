@@ -1,10 +1,62 @@
-## User manual
+# User guidelines
 
-### Using PLET data
+## Getting started
+It is recomended to run the ```R.proj``` file (an R project file) before to ensure that the working directory will automatically be set appropriately.
 
-### Using EDITO data lake
+## Using PLET data
+#### Get data
+Go to [https://www.dassh.ac.uk/lifeforms/](https://www.dassh.ac.uk/lifeforms/) and download your data.
+<br>
+Store the data in 
+```../data/lifeform.csv```
 
-### Required data format
+#### Run analysis
+Run PH1-FW5_indicator_script_v2.Rmd on ```..data/lifeform.csv``` and view the results in ```../output```.
+
+## Using EDITO data lake
+
+
+#### Get EDITO data
+Extract and format data from EDITO data lake. As an example, a pipeline doing this for of EurOBIS dataset 4687 is provided. 
+<br>
+Run ```get_data.R``` to extract and format this data, it will be stored in ```../data/PH1_edito_test.csv```.
+
+<br>
+This pipeline performs several reusable steps: 
+
+- Search the occurrence parquet: <br>
+	performs a STAC search and returns the latest version of the occurrence parquets.
+
+```
+source("search_data_lake/_search_STAC.R")
+file occ = search_STAC()
+```
+
+- open the parquet: <br>
+	This establishes the connection with the S3 bucket using S3FileSystem.
+```
+source("search_data_lake/_open_parquet.R")
+dataset = open_my_parquet(my_parquet)
+```
+
+- Filter the parquet
+```
+source("search_data_lake/_filter_parquet.R")
+filter_params <- list(
+  #longitude = c(0, 1),
+  #latitude = c(50, 51),
+  datasetid = 4687,
+  parameter = "WaterAbund (#/ml)",
+  eventtype = "sample"
+)
+
+my_selection <- filter_parquet(dataset, filter_params)
+```
+
+#### Required data format
+Once you have the occurrence data, it needs to be formatted in monthly aggregated lifeform groups. 
+If you intend to write your own pipeline or bring your own data, this section will explain you how your data format should look like.
+
 CSV file:
 - "Period": YYYY-MM (e.g. 2021-01)
 - "lifeform": str name of lifeform (eg. diatom)
@@ -36,28 +88,29 @@ Example raw
 "2017-07","diatom",8265.58566611672,4
 ```
 
+## Supporting files
 
-## R
-It is recomended to run the "R.proj" file (an R project file) before opening the R Notebooks script "PH1-FW5_indicator_script" within R-Studio.This ensures that the working directory will automatically be set appropriately.
-
-### get_data.R
-Extract and format data from EDITO data lake. Example of EurOBIS dataset 4687.
-
-### lifeform lookup table
-Supporting functions.
-
-### search data lake
-Supporting functions.
-
-### PH1_edito.Rmd
-This script uses the PLET export data to calculate the lifeform pairs indicator and to calculate the Kendall statistic for a 
-user-specified range in the time-series for all lifeforms and relevant lifeform pairs contained in the dataset. It then outputs this information as a set
-of figures to aid in understanding patterns and trends in plankton lifeform abundance.
-The reference and comparison period of the assessment can also be modified in the first chunk of the script. These periods must be distinct (i.e. periods do not
-contain any of the same years of data). The minimum and maximum years used to define these two distinct periods are also used to define the temporal limits for the
-whole of the analysis. 
-Output figures will be written to an "output" folder contained within the main directory.
-
-### Supporting_scripts
+#### Supporting scripts
 Contains R files holding a set of functions necessary for running the indicator script.
 It is recommended not to modify the files in this folder unless the user is experienced with writing functions in R.
+
+#### Search data lake
+Scripts to search the EDITO data lake.
+
+#### lifeform lookup tables
+Lookup tables used for grouping EDITO data to lifeform groups.
+
+
+## Credits
+- The PLET too is developed by Matthew Holland and the original version is maintained on his [GitHub](https://github.com/hollam2/PH1_PLET_tool).
+
+	**Citation**
+	If you use this software, please cite it as:<br>
+	*Holland, M. M. (2022). *PH1_PLET_tool* (Version 2.0). https://github.com/hollam2/PH1_PLET_tool*
+
+- The modifications and extension for deployment in EDITO are developed by Willem Boone as part of the DTO-Bioflow project (See [GitHub](https://github.com/willem0boone/EDITO_PH1)).
+
+- The DTO-Bioflow project is funded by the European Union under the Horizon Europe Programme, [Grant Agreement No. 101112823](https://cordis.europa.eu/project/id/101112823/results).
+
+
+
