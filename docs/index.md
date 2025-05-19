@@ -6,8 +6,8 @@ title: Subpage
 ## Table of Contents
 - [Main page](index.md)
 - [Native tool and data](PLET.md)
-- [EDITO onboarding](EDITO.md)
-- [Choosing Native or Edito](flowchart.md)
+- [Onboarding in EDITO](EDITO.md)
+- [How to use](usage.md)
 
 
 ## ![OSPAR QSR](https://oap-cloudfront.ospar.org/media/filer_public_thumbnails/filer_public/57/cb/57cb4097-b1de-4071-ad72-0af0814a1959/qrs_tall_logo_full_colour05x.png__140x140_subsampling-2_upscale.png) 

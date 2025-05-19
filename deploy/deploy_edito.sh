@@ -5,7 +5,7 @@
 echo "Starting initialization..."
 
 # Install the necessary R packages
-R -e 'if(!require("pak"))install.packages("pak")'
+R -e 'if(!require("pak")) install.packages("pak"); library(pak)'
 R -e '
 packages <- c(
   "reticulate",

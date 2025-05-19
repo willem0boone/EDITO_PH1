@@ -6,8 +6,8 @@ title: Subpage
 ## Table of Contents
 - [Main page](index.md)
 - [Native tool and data](PLET.md)
-- [EDITO onboarding](EDITO.md)
-- [Choosing Native or Edito](flowchart.md)
+- [Onboarding in EDITO](EDITO.md)
+- [How to use](usage.md)
 
 
 # PH1/FW5 indicator script in EDITO 
