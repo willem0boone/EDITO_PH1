@@ -1,12 +1,15 @@
-# PH1_PLET_tool
-Status: onboarding the tool in EDITO, testing data pipelines and implementation strategy.
+---
+layout: default
+title: Project structure
+---
 
-- [Project Structure](https://github.com/willem0boone/EDITO_PH1/tree/main?tab=readme-ov-file#project-structure) 
-- [Data](https://github.com/willem0boone/EDITO_PH1/tree/main?tab=readme-ov-file#data)
-- [Deploy](https://github.com/willem0boone/EDITO_PH1/tree/main?tab=readme-ov-file#deploy)
-- [Docs](https://github.com/willem0boone/EDITO_PH1/tree/main?tab=readme-ov-file#docs)
-- [R](https://github.com/willem0boone/EDITO_PH1/tree/main?tab=readme-ov-file#r)
-- [Credits](https://github.com/willem0boone/EDITO_PH1/tree/main?tab=readme-ov-file#credits)
+## Table of Contents
+- [Main page](index.md)
+- [Native tool and data](PLET.md)
+- [Onboarding in EDITO](EDITO.md)
+- [project structure](project_structure.md)
+- [How to use](usage.md)
+
 
 ## Project structure
 

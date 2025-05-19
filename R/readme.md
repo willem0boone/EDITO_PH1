@@ -1,4 +1,8 @@
-## Data
+## User manual
+
+### Using PLET data
+
+### Using EDITO data lake
 
 ### Required data format
 CSV file:
@@ -32,9 +36,6 @@ Example raw
 "2017-07","diatom",8265.58566611672,4
 ```
 
-### European Digital Twin of the Ocean (EDITO)
-In the DTO-Bioflow project, a pipeline was tested to extract and prepare the data for PLET tool using EDITO. 
-The output is stored at /data/PH1_edito_test.csv
 
 ## R
 It is recomended to run the "R.proj" file (an R project file) before opening the R Notebooks script "PH1-FW5_indicator_script" within R-Studio.This ensures that the working directory will automatically be set appropriately.

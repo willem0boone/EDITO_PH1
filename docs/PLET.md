@@ -1,12 +1,13 @@
 ---
 layout: default
-title: Subpage
+title: Native tool and data
 ---
 
 ## Table of Contents
 - [Main page](index.md)
 - [Native tool and data](PLET.md)
 - [Onboarding in EDITO](EDITO.md)
+- [project structure](project_structure.md)
 - [How to use](usage.md)
 
 

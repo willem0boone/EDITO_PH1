@@ -1,13 +1,15 @@
 ---
 layout: default
-title: Subpage
+title: Onboarding in EDITO
 ---
 
 ## Table of Contents
 - [Main page](index.md)
 - [Native tool and data](PLET.md)
 - [Onboarding in EDITO](EDITO.md)
+- [project structure](project_structure.md)
 - [How to use](usage.md)
+
 
 
 # PH1/FW5 indicator script in EDITO 
