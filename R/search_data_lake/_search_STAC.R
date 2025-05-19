@@ -1,3 +1,4 @@
+install.packages("rstac")
 library(rstac)
 
 #' Fetch Asset URLs from a STAC Catalog
