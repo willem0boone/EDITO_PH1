@@ -8,24 +8,24 @@ echo "Starting initialization..."
 R -e 'if(!require("pak"))install.packages("pak")'
 R -e '
 packages <- c(
-"reticulate",
-"testthat",
-"dplyr",
-"ggplot2",
-"stac",
-"yaml",
-"arrow",
-"rstac",
-"tibble",
-"tidyverse",
-"data.table",
-"janitor",
-"pracma",
-"broom",
-"EnvStats",
-"patchwork",
-"rnaturalearth",
-"zoo"
+  "reticulate",
+  "testthat",
+  "dplyr",
+  "ggplot2",
+  "stac",
+  "yaml",
+  "arrow",
+  "rstac",
+  "tibble",
+  "tidyverse",
+  "data.table",
+  "janitor",
+  "pracma",
+  "broom",
+  "EnvStats",
+  "patchwork",
+  "rnaturalearth",
+  "zoo"
 )
 
 pak::pkg_install(packages)
