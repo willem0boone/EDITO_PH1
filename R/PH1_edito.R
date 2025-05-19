@@ -38,7 +38,7 @@ source("Supporting_scripts/Supporting_functions_v2.R")
 dir_data <- "../data/"
 
 #enter the main directory to use to store image outputs
-dir_out <- "../output/"
+dir_out <- "../output_edito/"
 
 #create plot output directory
 dir.create(file.path(dir_out), showWarnings = FALSE)

@@ -23,7 +23,7 @@ Store the data in:
 ```
 
 ### Run Analysis
-Run `PH1-FW5_indicator_script_v2.Rmd` on `/data/lifeform.csv` and view the results in `/output`.
+Run ```PH1-FW5_indicator_script_v2.Rmd``` on ```/data/lifeform.csv``` and view the results in ```/output```.
 
 ---
 
@@ -39,14 +39,9 @@ Store the data in:
 ../data/PH1_edito_test.csv
 ```
 
-### Run Analysis
-Run `PH1-FW5_indicator_script_v2.Rmd` on `../data/lifeform.csv` and view the results in `../output`.
+### Example Pipeline from EDITO
 
----
-
-## Example Pipeline from EDITO
-
-Run `get_data.R` to extract and format this data. It will be stored in:
+Run ```get_data.R``` to extract and format this data. It will be stored in:
 
 ```
 ../data/PH1_edito_test.csv
@@ -87,7 +82,7 @@ my_selection <- filter_parquet(dataset, filter_params)
 
 ---
 
-## Required Data Format
+### Required Data Format
 
 Once you have the occurrence data, it needs to be formatted into **monthly aggregated lifeform groups**.  
 If you intend to write your own pipeline or bring your own data, this section explains the expected format.
@@ -123,6 +118,9 @@ Example raw
 "2017-06","diatom",31736.4549733857,4
 "2017-07","diatom",8265.58566611672,4
 ```
+
+### Analysis
+Run ```PH1_edito.R``` on ```data/PH1_edito_test``` and view results in ```../output_edito/```
 
 ## Supporting files
 
