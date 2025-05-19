@@ -37,5 +37,5 @@ See [https://uk-pheg.shinyapps.io/ph1_shiny/](https://uk-pheg.shinyapps.io/ph1_s
 
 	**Citation**
 	If you use this software, please cite it as:<br>
-	*Holland, M. M. (2022). *PH1_PLET_tool* (Version 2.0). https://github.com/hollam2/PH1_PLET_tool*
+	*Holland, M. M. (2022). PH1_PLET_tool (Version 2.0). https://github.com/hollam2/PH1_PLET_tool*
 

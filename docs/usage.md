@@ -7,52 +7,72 @@ title: Project structure
 - [Main page](index.md)
 - [Native tool and data](PLET.md)
 - [Onboarding in EDITO](EDITO.md)
-- [project structure](project_structure.md)
+- [Project structure](project_structure.md)
 - [How to use](usage.md)
 
-# User guidelines
+# User Guidelines
 
-## Getting started
-It is recomended to run the ```R.proj``` file (an R project file) before to ensure that the working directory will automatically be set appropriately.
+## Using PLET Data
 
-## Using PLET data
-#### Get data
-Go to [https://www.dassh.ac.uk/lifeforms/](https://www.dassh.ac.uk/lifeforms/) and download your data.
-<br>
-Store the data in 
-```../data/lifeform.csv```
-
-#### Run analysis
-Run PH1-FW5_indicator_script_v2.Rmd on ```..data/lifeform.csv``` and view the results in ```../output```.
-
-## Using EDITO data lake
-
-
-#### Get EDITO data
-Extract and format data from EDITO data lake. As an example, a pipeline doing this for of EurOBIS dataset 4687 is provided. 
-<br>
-Run ```get_data.R``` to extract and format this data, it will be stored in ```../data/PH1_edito_test.csv```.
-
-<br>
-This pipeline performs several reusable steps: 
-
-- Search the occurrence parquet: <br>
-	performs a STAC search and returns the latest version of the occurrence parquets.
+### Get Data
+Go to [https://www.dassh.ac.uk/lifeforms/](https://www.dassh.ac.uk/lifeforms/) and download your data.  
+Store the data in:
 
 ```
+/data/lifeform.csv
+```
+
+### Run Analysis
+Run `PH1-FW5_indicator_script_v2.Rmd` on `/data/lifeform.csv` and view the results in `/output`.
+
+---
+
+## Using EDITO Data Lake
+
+### Get EDITO Data
+Extract and format data from the EDITO data lake.  
+As an example, a pipeline for the EurOBIS dataset (ID: 4687) is provided.
+
+Store the data in:
+
+```
+../data/PH1_edito_test.csv
+```
+
+### Run Analysis
+Run `PH1-FW5_indicator_script_v2.Rmd` on `../data/lifeform.csv` and view the results in `../output`.
+
+---
+
+## Example Pipeline from EDITO
+
+Run `get_data.R` to extract and format this data. It will be stored in:
+
+```
+../data/PH1_edito_test.csv
+```
+
+This pipeline performs several reusable steps:
+
+- **Search the occurrence parquet**  
+  Performs a STAC search and returns the latest version of the occurrence parquets.
+
+```r
 source("search_data_lake/_search_STAC.R")
-file occ = search_STAC()
+occ <- search_STAC()
 ```
 
-- open the parquet: <br>
-	This establishes the connection with the S3 bucket using S3FileSystem.
-```
+- **Open the parquet**  
+  This establishes the connection with the S3 bucket using `S3FileSystem`.
+
+```r
 source("search_data_lake/_open_parquet.R")
-dataset = open_my_parquet(my_parquet)
+dataset <- open_my_parquet(my_parquet)
 ```
 
-- Filter the parquet
-```
+- **Filter the parquet**
+
+```r
 source("search_data_lake/_filter_parquet.R")
 filter_params <- list(
   #longitude = c(0, 1),
@@ -65,15 +85,19 @@ filter_params <- list(
 my_selection <- filter_parquet(dataset, filter_params)
 ```
 
-#### Required data format
-Once you have the occurrence data, it needs to be formatted in monthly aggregated lifeform groups. 
-If you intend to write your own pipeline or bring your own data, this section will explain you how your data format should look like.
+---
+
+## Required Data Format
+
+Once you have the occurrence data, it needs to be formatted into **monthly aggregated lifeform groups**.  
+If you intend to write your own pipeline or bring your own data, this section explains the expected format.
 
 CSV file:
-- "Period": YYYY-MM (e.g. 2021-01)
-- "lifeform": str name of lifeform (eg. diatom)
-- "abundance": abundance data (using '.' as decimal), monthly averaged. 
-- "num_samples": int, number of samples used in monthly aggregation.
+
+- `"Period"`: YYYY-MM (e.g. 2021-01)
+- `"lifeform"`: Name of the lifeform (e.g. *diatom*)
+- `"abundance"`: Abundance data (decimal point as `.`), monthly averaged
+- `"num_samples"`: Number of samples used in monthly aggregation
 
 Example records (note that the .txt file should not have a heading row).
 
@@ -118,7 +142,7 @@ Lookup tables used for grouping EDITO data to lifeform groups.
 
 	**Citation**
 	If you use this software, please cite it as:<br>
-	*Holland, M. M. (2022). *PH1_PLET_tool* (Version 2.0). https://github.com/hollam2/PH1_PLET_tool*
+	*Holland, M. M. (2022). PH1_PLET_tool (Version 2.0). https://github.com/hollam2/PH1_PLET_tool*
 
 - The modifications and extension for deployment in EDITO are developed by Willem Boone as part of the DTO-Bioflow project (See [GitHub](https://github.com/willem0boone/EDITO_PH1)).
 

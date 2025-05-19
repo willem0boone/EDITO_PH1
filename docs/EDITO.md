@@ -45,7 +45,7 @@ https://www.dassh.ac.uk/plet/cgi-bin/get_form.py?startdate=2000-01-01&enddate=20
 
 	**Citation**
 	If you use this software, please cite it as:<br>
-	*Holland, M. M. (2022). *PH1_PLET_tool* (Version 2.0). https://github.com/hollam2/PH1_PLET_tool*
+	*Holland, M. M. (2022). PH1_PLET_tool (Version 2.0). https://github.com/hollam2/PH1_PLET_tool*
 
 - The modifications and extension for deployment in EDITO are developed by Willem Boone as part of the DTO-Bioflow project (See [GitHub](https://github.com/willem0boone/EDITO_PH1)).
 
