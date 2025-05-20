@@ -19,6 +19,8 @@ As part of [DTO-Bioflow](https://dto-bioflow.eu/) [DUC 3](https://dto-bioflow.eu
 Furthermore, a demo pipeline shows how to search and harvesting data from EDITO data lake. The data is preprocessed into monthly aggregated lifeform groups and analyzed using the PH1/FW5 indicator script.
 
 # Importing PLET data in EDITO
+
+## Database endpoint
 The PLET does not have a fully supported API, but it is possible to request data using this endpoint:
 <br>
 ```
@@ -30,18 +32,27 @@ An example of such an request:
 with 
 - Date ```startdate=2000-01-01&enddate=2025-05-15```
 - Spatial extend ```wkt=POLYGON%20((-180%20-90,-180%2090,180%2090,180%20-90,-180%20-90))``` -> this means global extend.
-- dataset ```abundance_dataset=BE%20Flanders%20Marine%20Institute%20(VLIZ)%20-%20LW_VLIZ_zoo```
+- dataset ```abundance dataset=BE%20Flanders%20Marine%20Institute%20(VLIZ)%20-%20LW_VLIZ_zoo```
 
 ```
 https://www.dassh.ac.uk/plet/cgi-bin/get_form.py?startdate=2000-01-01&enddate=2025-05-15&wkt=POLYGON%20((-180%20-90,-180%2090,180%2090,180%20-90,-180%20-90))&abundance_dataset=BE%20Flanders%20Marine%20Institute%20(VLIZ)%20-%20LW_VLIZ_zoo&format=csv
 ```
+
+## Harvest PLET package
+The [harvest_plet](https://github.com/willem0boone/harvest_plet/tree/main) package facilitates the request forming and handling. Extending the .py endpoint, this package handles following aspects:
+- listing available datasets 
+- forming & evaluating the request url
+- some request result in long respons time, the package allow tweaking timeouts & retry config.
+
+See [https://harvest-plet.readthedocs.io/en/latest/](https://harvest-plet.readthedocs.io/en/latest/)
+
 
 <img src="https://www.edito.eu/wp-content/uploads/2023/08/schema-1024x937.jpg" alt="Edito" width="500"/>
 
 
 
 ## Credits
-- The PLET too is developed by Matthew Holland and the original version is maintained on his [GitHub](https://github.com/hollam2/PH1_PLET_tool).
+- The PLET tool is developed by Matthew Holland and the original version is maintained on his [GitHub](https://github.com/hollam2/PH1_PLET_tool).
 
 	**Citation**
 	If you use this software, please cite it as:<br>

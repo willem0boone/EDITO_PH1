@@ -31,7 +31,7 @@ For further reading About DUC3, see [DUC 3 Assessing pelagic biodiversity and hu
 
 
 ## Credits
-- The PLET too is developed by Matthew Holland and the original version is maintained on his [GitHub](https://github.com/hollam2/PH1_PLET_tool).
+- The PLET tool is developed by Matthew Holland and the original version is maintained on his [GitHub](https://github.com/hollam2/PH1_PLET_tool).
 
 	**Citation**
 	If you use this software, please cite it as:<br>
