@@ -39,6 +39,7 @@ deploy_edito.sh
 
 
 #### Docs
+Markdown documentation pages for [https://willem0boone.github.io/EDITO_PH1/](https://willem0boone.github.io/EDITO_PH1/).
 
 #### output & output_edito
 Where the output will be stored, these directories will be created when running the scripts.
