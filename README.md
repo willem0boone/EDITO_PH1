@@ -10,10 +10,15 @@ Status: onboarding the tool in EDITO, testing data pipelines and implementation 
 
 ## Project structure
 
-#### Data
-Where the source input data is stored. This can be:
-- An export from [PLET database](https://www.dassh.ac.uk/lifeforms/)
+#### R
+----------
+The actual analysis scripts. See [How to use](usage.md) further instructions.
 
+
+#### Data
+----------
+Directory where the source input data is stored. This can be:
+- An export from [PLET database](https://www.dassh.ac.uk/lifeforms/) 
 ```
 lifeform.csv
 ```
@@ -23,26 +28,28 @@ lifeform.csv
 PH1_edito_test.csv
 ```
 
-#### Deploy
-Handles installing dependencies. 
+#### Output & output_edito
+----------
+Where the output will be stored, these directories will be created when running the scripts.
+
+
+####  Deploy
+----------
+Contains script for installing dependencies. 
 <br>
-In an R env run: 
+- Using R: 
 ```
 install_dependencies.R
 ```
-The shell script is used for container launching in EDITO data lab.
+- Using shell
 ```
 deploy_edito.sh
 ```
 
 
 #### Docs
-
-#### output & output_edito
-Where the output will be stored, these directories will be created when running the scripts.
-
-#### R
-The actual analysis scripts. See directory for further instructions.
+----------
+Markdown documentation pages for [https://willem0boone.github.io/EDITO_PH1/](https://willem0boone.github.io/EDITO_PH1/).
 
 
 ## Credits

@@ -12,6 +12,11 @@ title: Project structure
 
 # User Guidelines
 
+
+It is recommended to run the ```R.proj``` file (an R project file) before to ensure that the working directory will automatically be set appropriately.
+
+----------------
+
 ## Using PLET Data
 
 ### Get Data
@@ -26,6 +31,7 @@ Store the data in:
 Run 
 ```PH1-FW5_indicator_script_v2.Rmd``` on ```/data/lifeform.csv``` and view the results in ```/output```.
 
+----------------
 
 ## Using data from EDITO
 
@@ -117,6 +123,8 @@ Example raw
 ### Step 3: Run PH1 analysis
 Run ```PH1_edito.R``` on ```data/PH1_edito_test``` and view results in ```../output_edito/```
 
+----------------
+
 ## Supporting files
 There are several files with supporting scripts, you do not need to run them. Do not modify unless you are sure what you are doing!
 
@@ -127,7 +135,7 @@ It is recommended not to modify the files in this folder unless the user is expe
 #### Search data lake
 Scripts to search the EDITO data lake.
 
-#### lifeform lookup tables
+#### lookup tables
 Lookup tables used for grouping EDITO data to lifeform groups.
 
 

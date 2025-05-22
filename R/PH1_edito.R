@@ -3,23 +3,7 @@ rm(list = ls())
 #turn off scientific notation
 options(scipen=999)
 
-#remove need for user prompts
-options(needs.promptUser = FALSE)
-
-#enter the range of years covered by the reference period (this is used to define the reference envelope)
-ref_years <- c(2010, 2016)
-
-#enter the range of years covered by the comparison period (this is used to determine the comparison data)
-comp_years <- c(2017, 2025)
-
-#lifeform abundance dataset filename
-file_lf <- "PH1_edito_test.csv"
-
-#set threshold for minimum number of months out of the year required for an assessment area to be included
-mon_thr <- 8
-print('ok')
-
- ################################
+################################
 
 list.of.packages <- c("tidyverse", "data.table", "janitor", "pracma", "broom", "EnvStats", "patchwork", "rnaturalearth", "zoo")
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
@@ -33,23 +17,34 @@ source("Supporting_scripts/Supporting_functions_v2.R")
 
 ##################################
 
+#remove need for user prompts
+options(needs.promptUser = FALSE)
+
+#enter the range of years covered by the reference period (this is used to define the reference envelope)
+ref_years <- c(2010, 2016)
+
+#enter the range of years covered by the comparison period (this is used to determine the comparison data)
+comp_years <- c(2017, 2025)
+
+#lifeform abundance dataset filename
+file_lf <- "PH1_EDITO_SNS.csv"
+
+#set threshold for minimum number of months out of the year required for an assessment area to be included
+mon_thr <- 8
+print('ok')
 
 #specify the directory for where the raw data is stored
 dir_data <- "../data/"
 
 #enter the main directory to use to store image outputs
-dir_out <- "../output_edito/"
+dir_out <- "../output_edito/SNS1/"
 
 #create plot output directory
 dir.create(file.path(dir_out), showWarnings = FALSE)
 
-
 ####################################
 
-
-
-
-df = read.csv("../data/PH1_edito_test.csv")
+df = read.csv(paste0("../data/", file_lf))
 
 dates <- read.table(text = as.character(df$period), sep="-", 
                     stringsAsFactors=FALSE)

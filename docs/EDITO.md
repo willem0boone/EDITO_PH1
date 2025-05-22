@@ -33,12 +33,12 @@ dassh.ac.uk/plet/cgi-bin/get_form.py
 Information and examples how to query this endpoint can be found on [https://www.dassh.ac.uk/lifeforms/docs/automation_guidance.txt](https://www.dassh.ac.uk/lifeforms/docs/automation_guidance.txt)
 
 An example of such an request:
-with 
-| **Parameter**      | **Value**                                                                                                                                      |
-|--------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
-| Date               | `startdate=2000-01-01&enddate=2025-05-15`                                                                                                       |
-| Spatial extent     | `wkt=POLYGON%20((-180%20-90,-180%2090,180%2090,180%20-90,-180%20-90))` → this means global extent                                              |
-| Dataset            | `abundance dataset=BE Flanders Marine Institute (VLIZ) - LW_VLIZ_zoo`                                                                          |
+
+| **Parameter**      | **Value**                                                                                                               |
+|--------------------|-------------------------------------------------------------------------------------------------------------------------|
+| Date               | `startdate=2000-01-01&enddate=2025-05-15`                                                                               |
+| Spatial extent     | `wkt=POLYGON%20((-180%20-90,-180%2090,180%2090,180%20-90,-180%20-90))` → this means global extent                       |
+| Dataset            | `abundance dataset=BE Flanders Marine Institute (VLIZ) - LW_VLIZ_zoo`                                                   |
 
 
 ```
