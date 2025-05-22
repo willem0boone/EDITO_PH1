@@ -79,8 +79,45 @@ filter_params <- list(
   parameter = "WaterAbund (#/ml)",
   eventtype = "sample"
 )
-
 my_selection <- filter_parquet(dataset, filter_params)
+```
+
+Several additional filtering steps:
+
+- **filter on Trip Action** 
+
+```r
+desired_trip_actions = read_csv("lookup_tables/allTripActions_exp.csv", 
+                                show_col_types = FALSE)
+
+my_selection <- filter_parquet(dataset, filter_params) %>%
+  mutate(
+    TripActionID = stringr::str_extract(event_id, "TripActionID\\d+"),
+    TripActionID = as.integer(stringr::str_remove(TripActionID, "TripActionID"))
+  ) %>%
+  filter(TripActionID %in% desired_trip_actions$Tripaction)
+```
+
+- **filter on OSPAR region** 
+
+```
+#' see https://odims.ospar.org/en/submissions/ospar_comp_au_2023_01/
+#' for OSPAR region id's and source files.
+#' The function "load_ospar_region" is sources from /utils/ospar_regions.R
+#' and loads the JSON file hosted at that webiste. It is Used to verify whether 
+#' your data is in a specific OSPAR region.
+MY_REGION <- "SCHPM1"
+
+# Load region polygon
+my_region <- load_ospar_region(MY_REGION)
+
+# Convert to sf and filter out missing coords
+my_selection_sf <- my_selection %>%
+  filter(!is.na(longitude), !is.na(latitude)) %>%
+  st_as_sf(coords = c("longitude", "latitude"), crs = 4326)
+
+# Perform spatial join to keep only records inside the region
+my_selection_inside <- st_join(my_selection_sf, my_region, join = st_within, left = FALSE)
 ```
 
 ### Step 2: Make monthly aggregates

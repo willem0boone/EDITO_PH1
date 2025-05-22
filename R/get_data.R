@@ -74,9 +74,9 @@ my_selection <- filter_parquet(dataset, filter_params) %>%
 
 #' see https://odims.ospar.org/en/submissions/ospar_comp_au_2023_01/
 #' for OSPAR region id's and source files.
-#' The function "point_in_ospar_region" is sources from /utils/ospar_regions.R
-#' and uses the JSON file hosted at that webiste to verify whether your data is 
-#' in a specific OSPAR region.
+#' The function "load_ospar_region" is sources from /utils/ospar_regions.R
+#' and loads the JSON file hosted at that webiste. It is Used to verify whether 
+#' your data is in a specific OSPAR region.
 
 
 # MY_REGION <- "SNS"
@@ -86,7 +86,7 @@ MY_REGION <- "SCHPM1"
 # Load region geometry and convert selection to sf
 # ------------------------------------------------------------------------------
 
-# Load region polygon once
+# Load region polygon
 my_region <- load_ospar_region(MY_REGION)
 
 # Convert to sf and filter out missing coords
