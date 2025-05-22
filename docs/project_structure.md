@@ -10,12 +10,26 @@ title: Project structure
 - [project structure](project_structure.md)
 - [How to use](usage.md)
 
+## <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="Git" width="100"/> Project code structure
 
-## Project structure
+The GitHub repo contains several directories. Each one is explained in the section below.
+- R
+- Data
+- Deploy 
+- Docs
+- Output (generates while running the code)
+
+![Diagram](https://docs.google.com/drawings/d/e/2PACX-1vSw8gP0827gjqY11ifvna1NS9Htj1C7dqARLy0KQzLt7azQUFn4BX5gIZ5LwP0jwhmg8EqPGJN_d79c/pub?w=960&h=720)
+
+#### R
+----------
+The actual analysis scripts. See [How to use](usage.md) further instructions.
+
 
 #### Data
-Where the source input data is stored. This can be:
-- An export from [PLET database](https://www.dassh.ac.uk/lifeforms/)
+----------
+Directory where the source input data is stored. This can be:
+- An export from [PLET database](https://www.dassh.ac.uk/lifeforms/) 
 ```
 lifeform.csv
 ```
@@ -25,27 +39,29 @@ lifeform.csv
 PH1_edito_test.csv
 ```
 
-#### Deploy
-Handles installing dependencies. 
+#### Output & output_edito
+----------
+Where the output will be stored, these directories will be created when running the scripts.
+
+
+####  Deploy
+----------
+Contains script for installing dependencies. 
 <br>
-In an R env run: 
+- Using R: 
 ```
 install_dependencies.R
 ```
-The shell script is used for container launching in EDITO data lab.
+- Using shell
 ```
 deploy_edito.sh
 ```
 
 
 #### Docs
+----------
 Markdown documentation pages for [https://willem0boone.github.io/EDITO_PH1/](https://willem0boone.github.io/EDITO_PH1/).
 
-#### output & output_edito
-Where the output will be stored, these directories will be created when running the scripts.
-
-#### R
-The actual analysis scripts. See [How to use](usage.md) further instructions.
 
 
 ## Credits

@@ -23,23 +23,20 @@ Store the data in:
 ```
 
 ### Run Analysis
-Run ```PH1-FW5_indicator_script_v2.Rmd``` on ```/data/lifeform.csv``` and view the results in ```/output```.
+Run 
+```PH1-FW5_indicator_script_v2.Rmd``` on ```/data/lifeform.csv``` and view the results in ```/output```.
 
----
 
-## Using EDITO Data Lake
+## Using data from EDITO
 
-### Get EDITO Data
+This includes several steps:
+- Step 1: Query the occurrence data parquet
+- Step 2: Make monthly aggregates
+- Step 3: Run PH1 analysis
+
+### Step 1: Query the occurrence data parquet
 Extract and format data from the EDITO data lake.  
 As an example, a pipeline for the EurOBIS dataset (ID: 4687) is provided.
-
-Store the data in:
-
-```
-../data/PH1_edito_test.csv
-```
-
-### Example Pipeline from EDITO
 
 Run ```get_data.R``` to extract and format this data. It will be stored in:
 
@@ -80,9 +77,7 @@ filter_params <- list(
 my_selection <- filter_parquet(dataset, filter_params)
 ```
 
----
-
-### Required Data Format
+### Step 2: Make monthly aggregates
 
 Once you have the occurrence data, it needs to be formatted into **monthly aggregated lifeform groups**.  
 If you intend to write your own pipeline or bring your own data, this section explains the expected format.
@@ -119,10 +114,11 @@ Example raw
 "2017-07","diatom",8265.58566611672,4
 ```
 
-### Analysis
+### Step 3: Run PH1 analysis
 Run ```PH1_edito.R``` on ```data/PH1_edito_test``` and view results in ```../output_edito/```
 
 ## Supporting files
+There are several files with supporting scripts, you do not need to run them. Do not modify unless you are sure what you are doing!
 
 #### Supporting scripts
 Contains R files holding a set of functions necessary for running the indicator script.

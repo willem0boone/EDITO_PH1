@@ -11,6 +11,16 @@ title: Main page
 - [How to use](usage.md)
 
 
+
+## ![DTO-Bioflow logo](https://dto-bioflow.eu/themes/custom/skeleton/logo.svg)
+The [DTO-Bioflow project](https://dto-bioflow.eu/) enables the integration of biodiversity monitoring data into the Digital Twin Ocean. 
+
+The importance of this project is demonstrated by several policy-relevant use cases. This Demonstrator Use Case (DUC) focusses on assessing pelagic biodiversity and human impact. This is a policy relevant subject as it is also part of the OSPAR thematic assessments.
+
+For further reading About DUC3, see [DUC 3 Assessing pelagic biodiversity and human impact](https://dto-bioflow.eu/use-cases/duc-3-assessing-pelagic-biodiversity-and-human-impact).
+
+![DTO-Bioflow logo](https://oap-cloudfront.ospar.org/media/filer_public/50/53/50533a33-5dbc-4ba7-8612-c5c256ae1f96/q4_copepod_credit_shutterstock.jpg)
+
 ## ![OSPAR QSR](https://oap-cloudfront.ospar.org/media/filer_public_thumbnails/filer_public/57/cb/57cb4097-b1de-4071-ad72-0af0814a1959/qrs_tall_logo_full_colour05x.png__140x140_subsampling-2_upscale.png) 
 
 The Pelagic Habitat Thematic Assessment is part of the OSPAR [Quality Status Report (QSR)](https://oap.ospar.org/en/ospar-assessments/quality-status-reports/qsr-2023/thematic-assessments/pelagic-habitats/)
@@ -20,14 +30,6 @@ It consists of 3 Assessments:
 - PH2 [Changes in Phytoplankton Biomass and Zooplankton Abundance](https://oap.ospar.org/en/ospar-assessments/quality-status-reports/qsr-2023/indicator-assessments/changes-plankton-biomass-abundance/)
 - PH3 [Changes in Plankton Diversity](https://oap.ospar.org/en/ospar-assessments/quality-status-reports/qsr-2023/indicator-assessments/changes-plankton-communities/)
 
-![DTO-Bioflow logo](https://oap-cloudfront.ospar.org/media/filer_public/50/53/50533a33-5dbc-4ba7-8612-c5c256ae1f96/q4_copepod_credit_shutterstock.jpg)
-
-
-## ![DTO-Bioflow logo](https://dto-bioflow.eu/themes/custom/skeleton/logo.svg)
-The [DTO-Bioflow project](https://dto-bioflow.eu/) enables the integration of biodiversity monitoring data into the Digital Twin Ocean. 
-
-Several Demonstrator Use Case (DUC) are included in the project. 
-For further reading About DUC3, see [DUC 3 Assessing pelagic biodiversity and human impact](https://dto-bioflow.eu/use-cases/duc-3-assessing-pelagic-biodiversity-and-human-impact).
 
 
 ## Credits

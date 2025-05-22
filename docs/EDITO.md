@@ -10,7 +10,7 @@ title: Onboarding in EDITO
 - [project structure](project_structure.md)
 - [How to use](usage.md)
 
-
+<img src="https://www.edito.eu/wp-content/uploads/2023/08/schema-1024x937.jpg" alt="Edito" width="500"/>
 
 # PH1/FW5 indicator script in EDITO 
 As part of [DTO-Bioflow](https://dto-bioflow.eu/) [DUC 3](https://dto-bioflow.eu/use-cases/duc-3-assessing-pelagic-biodiversity-and-human-impact), the [PH1/FW5 indicator script](https://github.com/hollam2/PH1_PLET_tool) has been made available in EDITO. 
@@ -20,7 +20,11 @@ Furthermore, a demo pipeline shows how to search and harvesting data from EDITO 
 
 # Importing PLET data in EDITO
 
-## Database endpoint
+There are 2 options:
+- Use the database endpoint
+- Harvest PLET package, a client to handle the database endpoint
+
+## 1. Database endpoint
 The PLET does not have a fully supported API, but it is possible to request data using this endpoint:
 <br>
 ```
@@ -30,24 +34,28 @@ Information and examples how to query this endpoint can be found on [https://www
 
 An example of such an request:
 with 
-- Date ```startdate=2000-01-01&enddate=2025-05-15```
-- Spatial extend ```wkt=POLYGON%20((-180%20-90,-180%2090,180%2090,180%20-90,-180%20-90))``` -> this means global extend.
-- dataset ```abundance dataset=BE%20Flanders%20Marine%20Institute%20(VLIZ)%20-%20LW_VLIZ_zoo```
+| **Parameter**      | **Value**                                                                                                                                      |
+|--------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
+| Date               | `startdate=2000-01-01&enddate=2025-05-15`                                                                                                       |
+| Spatial extent     | `wkt=POLYGON%20((-180%20-90,-180%2090,180%2090,180%20-90,-180%20-90))` → this means global extent                                              |
+| Dataset            | `abundance dataset=BE Flanders Marine Institute (VLIZ) - LW_VLIZ_zoo`                                                                          |
+
 
 ```
 https://www.dassh.ac.uk/plet/cgi-bin/get_form.py?startdate=2000-01-01&enddate=2025-05-15&wkt=POLYGON%20((-180%20-90,-180%2090,180%2090,180%20-90,-180%20-90))&abundance_dataset=BE%20Flanders%20Marine%20Institute%20(VLIZ)%20-%20LW_VLIZ_zoo&format=csv
 ```
 
-## Harvest PLET package
-The [harvest_plet](https://github.com/willem0boone/harvest_plet/tree/main) package facilitates the request forming and handling. Extending the .py endpoint, this package handles following aspects:
+## 2. Harvest PLET package
+The package facilitates the request forming and handling. Extending the Database endpoint, this package handles following aspects:
 - listing available datasets 
 - forming & evaluating the request url
 - some request result in long respons time, the package allow tweaking timeouts & retry config.
 
-See [https://harvest-plet.readthedocs.io/en/latest/](https://harvest-plet.readthedocs.io/en/latest/)
+Read the docs on [https://harvest-plet.readthedocs.io/en/latest/](https://harvest-plet.readthedocs.io/en/latest/)\
+GitHub source code: [https://github.com/willem0boone/harvest_plet/tree/main](https://github.com/willem0boone/harvest_plet/tree/main)
 
 
-<img src="https://www.edito.eu/wp-content/uploads/2023/08/schema-1024x937.jpg" alt="Edito" width="500"/>
+
 
 
 
