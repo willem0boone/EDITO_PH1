@@ -36,7 +36,7 @@ Holland, M. (n.d.). *PH1_PLET_tool* [GitHub repository]. GitHub. https://github.
 
 > "[...] calculate the lifeform pairs indicator and to calculate the Kendall statistic for a user-specified range in the time-series for all lifeforms and relevant lifeform pairs contained in the dataset. [...] outputs this information as a set of figures to aid in understanding patterns and trends in plankton lifeform abundance." (Holland, n.d.)
 
-![Diagram](https://docs.google.com/drawings/d/e/2PACX-1vQl0chDNJdmWUD1uBT2bwjC538ZFkMOPZa0poyGGx8a40bu-DDFdh39mmeCaAy0_WsXXzINHVtzNk5t/pub?w=1440&h=1080)
+![Diagram](https://docs.google.com/drawings/d/e/2PACX-1vQl0chDNJdmWUD1uBT2bwjC538ZFkMOPZa0poyGGx8a40bu-DDFdh39mmeCaAy0_WsXXzINHVtzNk5t/pub?w=2700&h=1000)
 
 
 ## Credits
