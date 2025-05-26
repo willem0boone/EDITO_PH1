@@ -110,6 +110,8 @@ my_selection <- filter_parquet(dataset, filter_params) %>%
 # ------------------------------------------------------------------------------
 #'filter_and_plot_region_selection is function sourced from
 #'utils/ospar_regions.R
+#'See https://odims.ospar.org/en/submissions/ospar_comp_au_2023_01/ for OSPAR 
+#'COMP areas
 
 # MY_REGION <- "SNS"
 MY_REGION <- "SCHPM1"

@@ -23,8 +23,18 @@ The GitHub repo contains several directories. Each one is explained in the secti
 
 #### R
 ----------
-The actual analysis scripts. See [How to use](usage.md) further instructions.
+Scripts to harvest data from EDITO. 
 
+- get_edito_dasid_4687_SCHPM1_holo_mero.R
+- get_edito_dasid_4687_SNS_holo_mero.R
+
+Analysis scripts
+- PH1_edito.R
+- PH1-FW5_indicator_script_v2.Rmd
+
+Several supporting scripts and tables in subdirectories.
+
+See [How to use](usage.md) further instructions.
 
 #### Data
 ----------
@@ -36,7 +46,7 @@ lifeform.csv
 
 - An export from EDITO data lake. 
 ```
-PH1_edito_test.csv
+EDITO_dasid_4687_SCHPM1_holo_mero.csv
 ```
 
 #### Output & output_edito

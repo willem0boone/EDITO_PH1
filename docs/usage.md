@@ -11,13 +11,19 @@ title: Project structure
 - [How to use](usage.md)
 
 # User Guidelines
+There are 2 ways to perform the analysis. 
+- **Option A**: Using PLET Data (Red) 
+- **Option B**: Using EDITO Data (blue)
+
+![Diagram](https://docs.google.com/drawings/d/e/2PACX-1vQUvGo1Did9X1s5c-1ij6ncR05VUFoEwBvjtRm_AuGB5-ltQ8VdTQ1bwNI2bjXNubhwaW_mtb53OyWu/pub?w=1440&h=1080)
+
 
 
 It is recommended to run the ```R.proj``` file (an R project file) before to ensure that the working directory will automatically be set appropriately.
 
 ----------------
 
-## Using PLET Data
+## Option A: Using PLET Data
 
 ### Get Data
 Go to [https://www.dassh.ac.uk/lifeforms/](https://www.dassh.ac.uk/lifeforms/) and download your data.  
@@ -33,7 +39,7 @@ Run
 
 ----------------
 
-## Using data from EDITO
+## Option B: Using EDITO Data
 
 This includes several steps:
 - Step 1: Query the occurrence data parquet
@@ -44,7 +50,7 @@ This includes several steps:
 Extract and format data from the EDITO data lake.  
 As an example, a pipeline for the EurOBIS dataset (ID: 4687) is provided.
 
-Run ```get_data.R``` to extract and format this data. It will be stored in:
+Run ```get_edito_dasid_4687_SCHPM1_holo_mero.R``` to extract and format this data. It will be stored in:
 
 ```
 ../data/PH1_edito_test.csv
@@ -69,6 +75,7 @@ dataset <- open_my_parquet(my_parquet)
 ```
 
 - **Filter the parquet**
+Use a list of filter parameters (field = value) to filter the parquet. 
 
 ```r
 source("search_data_lake/_filter_parquet.R")
@@ -86,39 +93,33 @@ Several additional filtering steps:
 
 - **filter on Trip Action** 
 
-```r
-desired_trip_actions = read_csv("lookup_tables/allTripActions_exp.csv", 
-                                show_col_types = FALSE)
-
-my_selection <- filter_parquet(dataset, filter_params) %>%
-  mutate(
-    TripActionID = stringr::str_extract(event_id, "TripActionID\\d+"),
-    TripActionID = as.integer(stringr::str_remove(TripActionID, "TripActionID"))
-  ) %>%
-  filter(TripActionID %in% desired_trip_actions$Tripaction)
-```
+	Additional filter to select data from LifeWatch, see code.
 
 - **filter on OSPAR region** 
 
+	The data needs to be spatially aggregated according OSPAR zones. <br>
+	Function ```filter_and_plot_region_selection``` is sourced from ```utils/ospar_regions.R``` <br>
+	See [https://odims.ospar.org/en/submissions/ospar_comp_au_2023_01/](https://odims.ospar.org/en/submissions/ospar_comp_au_2023_01/) for OSPAR COMP areas.
+
 ```
-#' see https://odims.ospar.org/en/submissions/ospar_comp_au_2023_01/
-#' for OSPAR region id's and source files.
-#' The function "load_ospar_region" is sources from /utils/ospar_regions.R
-#' and loads the JSON file hosted at that webiste. It is Used to verify whether 
-#' your data is in a specific OSPAR region.
 MY_REGION <- "SCHPM1"
 
-# Load region polygon
-my_region <- load_ospar_region(MY_REGION)
-
-# Convert to sf and filter out missing coords
-my_selection_sf <- my_selection %>%
-  filter(!is.na(longitude), !is.na(latitude)) %>%
-  st_as_sf(coords = c("longitude", "latitude"), crs = 4326)
-
-# Perform spatial join to keep only records inside the region
-my_selection_inside <- st_join(my_selection_sf, my_region, join = st_within, left = FALSE)
+filtered_data <- filter_and_plot_region_selection(
+  ospar_region = MY_REGION, 
+  df = my_selection, 
+  filename = paste0("../data/PH1_EDITO_", MY_REGION, ".png")
+)
 ```
+With  <br>
+| Argument  		| Value						| 
+| -------------   	|-------------	    				|
+| ospar_region	  	| OSPAR COMP ID					|
+| df		  	| target dataframe with lat & lon coordinates	|
+| filename		| location to save map plot			|
+
+
+Example of OSPAR region filter:
+![Diagram](https://docs.google.com/drawings/d/e/2PACX-1vQ53hBADvUhgCfz51SNCazAc5AE-7EgPS7FNirDHsGPiFDVUEJIGgY5tgl6A8d2vjsIwQi8TdC_YgoH/pub?w=1440&h=1080)
 
 ### Step 2: Make monthly aggregates
 
@@ -158,7 +159,7 @@ Example raw
 ```
 
 ### Step 3: Run PH1 analysis
-Run ```PH1_edito.R``` on ```data/PH1_edito_test``` and view results in ```../output_edito/```
+Run ```PH1_edito.R``` on ```EDITO_dasid_4687_SCHPM1_holo_mero.csv``` and view results in ```../output_edito/```
 
 ----------------
 
