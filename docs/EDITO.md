@@ -13,10 +13,10 @@ title: Onboarding in EDITO
 <img src="https://www.edito.eu/wp-content/uploads/2023/08/schema-1024x937.jpg" alt="Edito" width="500"/>
 
 # PH1/FW5 indicator script in EDITO 
-As part of [DTO-Bioflow](https://dto-bioflow.eu/) [DUC 3](https://dto-bioflow.eu/use-cases/duc-3-assessing-pelagic-biodiversity-and-human-impact), the [PH1/FW5 indicator script](https://github.com/hollam2/PH1_PLET_tool) has been made available in EDITO. 
+As part of [DTO-Bioflow](https://dto-bioflow.eu/) [DUC 3](https://dto-bioflow.eu/use-cases/duc-3-assessing-pelagic-biodiversity-and-human-impact), the original [PH1/FW5 indicator script](https://github.com/hollam2/PH1_PLET_tool) has been made available in EDITO. 
 <br>
 <br>
-Furthermore, a demo pipeline shows how to search and harvest data from EDITO data lake. The data is preprocessed into monthly aggregated lifeform groups and analyzed using the PH1/FW5 indicator script.
+Furthermore, a demo pipeline shows how to search and harvest data from EDITO data lake. The data is preprocessed into monthly aggregated lifeform groups and analyzed using an modified version of the PH1/FW5 indicator script.
 
 Go to [project structure](project_structure.md) to find the scripts and to [How to use](usage.md) to learn how to run this script.
 

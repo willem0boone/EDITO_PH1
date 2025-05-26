@@ -1,5 +1,7 @@
 library(sf)
 library(httr)
+library(dplyr)
+library(ggplot2)
 library(jsonlite)
 
 #' Check if a point lies within an OSPAR region
@@ -76,4 +78,61 @@ load_ospar_region <- function(region_id = "SNS") {
   return(region)
 }
 
+#' Filter and Plot Spatial Selection Within a Region
+#'
+#' This function filters a dataset of geographic points to include only those
+#' that fall within a specified OSPAR region, creates a plot visualizing the
+#' selection, and saves the plot to a PNG file.
+#'
+#' @param ospar_region A string specifying the name of the OSPAR region to load.
+#' @param df A data frame containing at least 'longitude' and 'latitude' columns.
+#' @param filename A string specifying the full path and filename (including .png extension)
+#'        to save the output plot.
+#'
+#' @return A data frame of the input points that fall within the specified region.
+#' @examples
+#' \dontrun{
+#' filtered_data <- filter_and_plot_region_selection("GreaterNorthSea", my_df, "../plots/output.png")
+#' }
 
+filter_and_plot_region_selection <- function(ospar_region, df, filename) {
+  
+  # Load region polygon
+  my_region <- load_ospar_region(ospar_region)
+  
+  # Convert selection to sf and filter out missing coordinates
+  my_selection_sf <- df %>%
+    filter(!is.na(longitude), !is.na(latitude)) %>%
+    st_as_sf(coords = c("longitude", "latitude"), crs = 4326)
+  
+  # Perform spatial join to keep only records inside the region
+  my_selection_inside <- st_join(my_selection_sf, my_region, join = st_within, left = FALSE)
+  
+  # Plot the result
+  p <- ggplot() +
+    geom_sf(data = my_region, fill = "lightblue", alpha = 0.2, color = "blue") +
+    geom_sf(data = my_selection_sf, color = "gray70", size = 0.8, alpha = 0.5) +
+    geom_sf(data = my_selection_inside, color = "red", size = 1.2, alpha = 0.8) +
+    labs(
+      title = "Spatial Distribution of Observations",
+      subtitle = paste0(
+        "Red: Inside ", ospar_region, " region | Gray: All Points | ",
+        "Blue: ", ospar_region, " Boundary"
+      ),
+      x = "Longitude",
+      y = "Latitude"
+    ) +
+    theme_minimal()
+  
+  # Save the plot
+  ggsave(
+    filename = filename,
+    plot = p,
+    width = 8,
+    height = 6,
+    dpi = 300
+  )
+  
+  # Return filtered data frame
+  return(as.data.frame(my_selection_inside))
+}
