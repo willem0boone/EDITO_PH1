@@ -111,6 +111,7 @@ filtered_data <- filter_and_plot_region_selection(
 )
 ```
 With  <br>
+
 | Argument  		| Value						| 
 | -------------   	|-------------	    				|
 | ospar_region	  	| OSPAR COMP ID					|
