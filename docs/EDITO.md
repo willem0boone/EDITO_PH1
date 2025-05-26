@@ -16,7 +16,7 @@ title: Onboarding in EDITO
 As part of [DTO-Bioflow](https://dto-bioflow.eu/) [DUC 3](https://dto-bioflow.eu/use-cases/duc-3-assessing-pelagic-biodiversity-and-human-impact), the [PH1/FW5 indicator script](https://github.com/hollam2/PH1_PLET_tool) has been made available in EDITO. 
 <br>
 <br>
-Furthermore, a demo pipeline shows how to search and harvesting data from EDITO data lake. The data is preprocessed into monthly aggregated lifeform groups and analyzed using the PH1/FW5 indicator script.
+Furthermore, a demo pipeline shows how to search and harvest data from EDITO data lake. The data is preprocessed into monthly aggregated lifeform groups and analyzed using the PH1/FW5 indicator script.
 
 # Importing PLET data in EDITO
 
@@ -55,11 +55,13 @@ Read the docs on [https://harvest-plet.readthedocs.io/en/latest/](https://harves
 GitHub source code: [https://github.com/willem0boone/harvest_plet/tree/main](https://github.com/willem0boone/harvest_plet/tree/main)
 
 
-
-
-
-
 ## Credits
+- DUC Leaders
+	Rune Lagaisse (VLIZ)
+	Willem Boone (VLIZ)
+	Felipe Artigas (CNRS ULCO)
+	Ankita Vaswani (Hereon)
+
 - The PLET tool is developed by Matthew Holland and the original version is maintained on his [GitHub](https://github.com/hollam2/PH1_PLET_tool).
 
 	**Citation**

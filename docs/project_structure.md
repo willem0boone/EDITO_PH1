@@ -65,6 +65,12 @@ Markdown documentation pages for [https://willem0boone.github.io/EDITO_PH1/](htt
 
 
 ## Credits
+- DUC Leaders
+	Rune Lagaisse (VLIZ)
+	Willem Boone (VLIZ)
+	Felipe Artigas (CNRS ULCO)
+	Ankita Vaswani (Hereon)
+
 - The PLET tool is developed by Matthew Holland and the original version is maintained on his [GitHub](https://github.com/hollam2/PH1_PLET_tool).
 
 	**Citation**

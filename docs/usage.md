@@ -177,6 +177,12 @@ Lookup tables used for grouping EDITO data to lifeform groups.
 
 
 ## Credits
+- DUC Leaders
+	Rune Lagaisse (VLIZ)
+	Willem Boone (VLIZ)
+	Felipe Artigas (CNRS ULCO)
+	Ankita Vaswani (Hereon)
+
 - The PLET tool is developed by Matthew Holland and the original version is maintained on his [GitHub](https://github.com/hollam2/PH1_PLET_tool).
 
 	**Citation**
@@ -186,6 +192,5 @@ Lookup tables used for grouping EDITO data to lifeform groups.
 - The modifications and extension for deployment in EDITO are developed by Willem Boone as part of the DTO-Bioflow project (See [GitHub](https://github.com/willem0boone/EDITO_PH1)).
 
 - The DTO-Bioflow project is funded by the European Union under the Horizon Europe Programme, [Grant Agreement No. 101112823](https://cordis.europa.eu/project/id/101112823/results).
-
 
 

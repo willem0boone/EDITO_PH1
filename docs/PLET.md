@@ -31,6 +31,9 @@ The source code can be accessed via [GitHub](https://github.com/hollam2/PH1_PLET
 A dashboard has been made available, allowing users to select and configure and see results on the fly.<br><br>
 See [https://uk-pheg.shinyapps.io/ph1_shiny/](https://uk-pheg.shinyapps.io/ph1_shiny/)
 
+<iframe src="https://uk-pheg.shinyapps.io/ph1_shiny/" width="100%" height="600" style="border:1px solid #ccc;"></iframe>
+
+
 
 ## Credits
 - The PLET tool is developed by Matthew Holland and the original version is maintained on his [GitHub](https://github.com/hollam2/PH1_PLET_tool).

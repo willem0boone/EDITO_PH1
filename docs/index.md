@@ -13,9 +13,9 @@ title: Main page
 
 
 ## ![DTO-Bioflow logo](https://dto-bioflow.eu/themes/custom/skeleton/logo.svg)
-The [DTO-Bioflow project](https://dto-bioflow.eu/) enables the integration of biodiversity monitoring data into the Digital Twin Ocean. 
+The [DTO-Bioflow project](https://dto-bioflow.eu/) enables the integration of biodiversity monitoring data into the Digital Twin Ocean. The importance of this project is demonstrated by several policy-relevant Demonstrator Use Cases (DUC).
 
-The importance of this project is demonstrated by several policy-relevant use cases. This Demonstrator Use Case (DUC) focusses on assessing pelagic biodiversity and human impact. This is a policy relevant subject as it is also part of the OSPAR thematic assessments.
+Demonstrator Use Case 3 (DUC3) is one of the key Demonstrator Use Cases within the DTO-BioFlow project, focusing on the assessment of pelagic biodiversity and the impact of human activities in marine ecosystems. This use case is vital for informing environmental policy and management, as it contributes directly to the OSPAR thematic assessments. By integrating biodiversity monitoring data into the Digital Twin Ocean, DUC3 provides valuable insights into ecosystem health, supporting evidence-based decision-making at both regional and global levels.
 
 For further reading About DUC3, see [DUC 3 Assessing pelagic biodiversity and human impact](https://dto-bioflow.eu/use-cases/duc-3-assessing-pelagic-biodiversity-and-human-impact).
 
@@ -31,8 +31,21 @@ It consists of 3 Assessments:
 - PH3 [Changes in Plankton Diversity](https://oap.ospar.org/en/ospar-assessments/quality-status-reports/qsr-2023/indicator-assessments/changes-plankton-communities/)
 
 
+## PH1: Changes in Phytoplankton and Zooplankton Communities
+Holland, M. (n.d.). *PH1_PLET_tool* [GitHub repository]. GitHub. https://github.com/hollam2/PH1_PLET_tool
+
+> "[...] calculate the lifeform pairs indicator and to calculate the Kendall statistic for a user-specified range in the time-series for all lifeforms and relevant lifeform pairs contained in the dataset. [...] outputs this information as a set of figures to aid in understanding patterns and trends in plankton lifeform abundance." (Holland, n.d.)
+
+![Diagram](https://docs.google.com/drawings/d/e/2PACX-1vQl0chDNJdmWUD1uBT2bwjC538ZFkMOPZa0poyGGx8a40bu-DDFdh39mmeCaAy0_WsXXzINHVtzNk5t/pub?w=1440&h=1080)
+
 
 ## Credits
+- DUC Leaders
+	Rune Lagaisse (VLIZ)
+	Willem Boone (VLIZ)
+	Felipe Artigas (CNRS ULCO)
+	Ankita Vaswani (Hereon)
+
 - The PLET tool is developed by Matthew Holland and the original version is maintained on his [GitHub](https://github.com/hollam2/PH1_PLET_tool).
 
 	**Citation**
