@@ -25,7 +25,9 @@ packages <- c(
   "EnvStats",
   "patchwork",
   "rnaturalearth",
-  "zoo"
+  "zoo",
+  "prettymapr",
+   "ggspatial"
 )
 
 pak::pkg_install(packages)

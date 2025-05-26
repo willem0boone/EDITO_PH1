@@ -1,3 +1,40 @@
+#' Extract, Filter, Classify, and Aggregate Zooplankton Abundance Data
+#'
+#' This script retrieves plankton occurrence data from a remote Eurobis dataset (via STAC/Parquet),
+#' filters it by dataset ID, parameter, and event type, restricts it spatially using OSPAR regions,
+#' classifies observations into lifeform groups, and aggregates the data into a monthly time series
+#' of average abundances.
+#' 
+#' The result is exported as a CSV file suitable for lifeform indicator calculations and time-series
+#' trend analysis in marine biodiversity assessments.
+#'
+#' @details
+#' Main workflow:
+#' \itemize{
+#'   \item Query STAC catalog and load the occurrence dataset from a Parquet file.
+#'   \item Filter by `datasetid`, `parameter`, and `eventtype`.
+#'   \item Filter by `TripActionID` using an external lookup table.
+#'   \item Restrict data to a selected OSPAR region using spatial filtering.
+#'   \item Classify observations into lifeform groups based on a YAML lookup.
+#'   \item Aggregate abundance values per period and lifeform.
+#'   \item Export the results and generate spatial distribution plots.
+#' }
+#'
+#' @source
+#' - Eurobis Occurrence Parquet: 
+#'   \url{https://s3.waw3-1.cloudferro.com/emodnet/emodnet_biology/12639/eurobis_parquet_2025-03-14.parquet}
+#' - OSPAR Regions: 
+#'   \url{https://odims.ospar.org/en/submissions/ospar_comp_au_2023_01/}
+#'
+#' @author
+#' Willem Boone \url{https://github.com/willem0boone/EDITO_PH1}
+#'
+#' @note
+#' Requires helper scripts from `search_data_lake/` and `utils/`, as well as 
+#' external lookup tables and YAML classification files stored locally.
+#'
+#' @keywords zooplankton, EMODnet, lifeform indicator, biodiversity, STAC, Parquet, spatial filtering
+#'
 library(yaml)
 library(dplyr)
 library(purrr)
@@ -11,6 +48,7 @@ source("search_data_lake/_search_STAC.R")
 source("search_data_lake/_open_parquet.R")
 source("search_data_lake/_filter_parquet.R")
 source("utils/ospar_regions.R")
+
 
 # ------------------------------------------------------------------------------
 # get the occurrence parquet file
@@ -79,8 +117,8 @@ my_selection <- filter_parquet(dataset, filter_params) %>%
 #' your data is in a specific OSPAR region.
 
 
-# MY_REGION <- "SNS"
-MY_REGION <- "SCHPM1"
+MY_REGION <- "SNS"
+# MY_REGION <- "SCHPM1"
 
 # ------------------------------------------------------------------------------
 # Load region geometry and convert selection to sf
@@ -218,7 +256,7 @@ print(my_subset)
 # ------------------------------------------------------------------------------
 # save
 # ------------------------------------------------------------------------------
-dest = file.path(paste0("../data/PH1_EDITO_", MY_REGION,".csv"))
+dest = file.path(paste0("../data/EDITO_dasid_4687_", MY_REGION,"_holo_mero.csv"))
 write.csv(my_subset, dest, row.names=F)
 
 print("finished get data")

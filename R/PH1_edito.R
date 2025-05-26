@@ -1,3 +1,50 @@
+#' Main Script for Lifeform Abundance Data Processing and Indicator Analysis
+#'
+#' This script performs a complete workflow for analyzing lifeform abundance data 
+#' across specified reference and comparison periods. It handles data loading, 
+#' cleaning, transformation, indicator calculation, statistical testing, and plotting.
+#' The outputs include plots and Excel files summarizing the analysis results.
+#'
+#' @details
+#' The workflow includes:
+#' - Clearing the R workspace and setting global options such as turning off scientific notation.
+#' - Checking and installing required packages, then loading them.
+#' - Loading user-defined supporting functions from external R scripts.
+#' - Defining analysis parameters including reference and comparison year ranges, input/output paths, and data quality thresholds.
+#' - Reading and preprocessing lifeform abundance data, including date extraction and filtering by year.
+#' - Generating assessment IDs and spatial polygon maps.
+#' - Applying log transformation to abundance data.
+#' - Cleaning the dataset by removing years with insufficient data coverage and filling gaps via temporal interpolation.
+#' - Creating subsets for reference and comparison periods.
+#' - Constructing reference envelopes and calculating lifeform pairs indicators both overall and annually.
+#' - Plotting envelopes and time series to visualize changes.
+#' - Performing Kendall trend tests to model changes over time.
+#' - Combining plots and saving them alongside result summaries to disk.
+#' - Exporting analysis results into Excel files for further review.
+#'
+#' @keywords
+#' lifeform abundance, time series analysis, ecological indicators, data cleaning, 
+#' trend analysis, spatial analysis, R automation
+#'
+#' @note
+#' - User prompts are disabled for automated batch processing.
+#' - Paths to data and outputs must be adjusted according to user environment.
+#' - Supporting functions must be present in the "Supporting_scripts" directory.
+#' - Some steps are customizable by editing variables such as year ranges and file names.
+#' - This script assumes a consistent data format for the lifeform abundance CSV files.
+#'
+#' @source
+#' Developed by [Your Name or Team]. 
+#' Supporting functions adapted from [Relevant sources or references].
+#' Data format and indicator methodology based on [Relevant publications or internal documentation].
+#'
+#' @author
+#' Willem Boone https://github.com/willem0boone
+#' Based on work of Matthew Holland https://github.com/hollam2
+#'
+#' @date
+#' 2025-05
+
 rm(list = ls()) 
 
 #turn off scientific notation
@@ -27,7 +74,8 @@ ref_years <- c(2010, 2016)
 comp_years <- c(2017, 2025)
 
 #lifeform abundance dataset filename
-file_lf <- "PH1_EDITO_SNS.csv"
+# file_lf <- "EDITO_dasid_4687_SCHPM1_holo_mero.csv"
+file_lf <- "EDITO_dasid_4687_SNS_holo_mero.csv"
 
 #set threshold for minimum number of months out of the year required for an assessment area to be included
 mon_thr <- 8
@@ -37,7 +85,7 @@ print('ok')
 dir_data <- "../data/"
 
 #enter the main directory to use to store image outputs
-dir_out <- "../output_edito/SNS1/"
+dir_out <- "../output_edito/SNS/"
 
 #create plot output directory
 dir.create(file.path(dir_out), showWarnings = FALSE)

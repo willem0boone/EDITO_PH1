@@ -18,6 +18,8 @@ As part of [DTO-Bioflow](https://dto-bioflow.eu/) [DUC 3](https://dto-bioflow.eu
 <br>
 Furthermore, a demo pipeline shows how to search and harvest data from EDITO data lake. The data is preprocessed into monthly aggregated lifeform groups and analyzed using the PH1/FW5 indicator script.
 
+Go to [project structure](project_structure.md) to find the scripts and to [How to use](usage.md) to learn how to run this script.
+
 # Importing PLET data in EDITO
 
 There are 2 options:
